@@ -46,5 +46,10 @@ public class Turma
         }
         return pauta;
     }
+
+    public string GerarAula()
+    {
+        return "Aula da turma "  + Codigo + "gerada com sucesso";
+    }
 }
 
