@@ -4,9 +4,10 @@ using System.Collections.Generic;
 public class Turma
 {
     public int Codigo { get; set; }
-    public Disciplina Disciplina { get;  set; }
+    public Disciplina Disciplina { get; set; }
     public Professor Professor { get; set; }
     private List<Aluno> Alunos;
+    private List<Turma> Turmas { get; set; }
     private const int MaxAlunos = 10;
 
     public Turma(int codigo, Disciplina disciplina, Professor professor)
@@ -15,6 +16,7 @@ public class Turma
         Disciplina = disciplina;
         Professor = professor;
         Alunos = new List<Aluno>();
+        Turmas = new List<Turma>();
     }
 
     public string AddAluno(Aluno aluno)
@@ -32,9 +34,19 @@ public class Turma
         return Alunos.Count >= 2;
     }
 
+    public void AddProfessor(Professor professor)
+    {
+        this.Professor = professor;
+    }
+
+    public void AddDisciplina(Disciplina disciplina)
+    {
+        this.Disciplina = disciplina;
+    }
+
     public string GeraPauta()
     {
-        string turma = "Turma : "  + Codigo;
+        string turma = "Turma : " + Codigo;
         string disciplina = "Disciplina: " + Disciplina.Nome;
         string professor = "Professor: " + Professor.Nome;
 
@@ -49,7 +61,6 @@ public class Turma
 
     public string GerarAula()
     {
-        return "Aula da turma "  + Codigo + "gerada com sucesso";
+        return "Aula da turma " + Codigo + "gerada com sucesso";
     }
 }
-
